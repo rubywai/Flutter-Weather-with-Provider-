@@ -36,7 +36,7 @@ class _WeatherApiService implements WeatherApiService {
   }
 
   @override
-  Future<WeatherModel> getWeatherInco({required cityId}) async {
+  Future<WeatherModel> getWeatherInfo({required cityId}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};

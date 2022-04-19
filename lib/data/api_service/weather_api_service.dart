@@ -13,7 +13,7 @@ abstract class WeatherApiService {
   Future<List<CityModel>> searchCity({@Query("query") required String city });
 
   @GET("location/{cityId}")
-  Future<WeatherModel> getWeatherInco({@Path("cityId") required String cityId});
+  Future<WeatherModel> getWeatherInfo({@Path("cityId") required String cityId});
 
 
 }
