@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:weather_app_with_provider/view/change_notifier/search_city_notifier.dart';
+import 'package:weather_app_with_provider/view/change_notifier/weather_detail_notifier.dart';
 import 'package:weather_app_with_provider/view/screen/search_screen.dart';
 
 void main() {
@@ -11,11 +12,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: ChangeNotifierProvider(
-        create: (_) => CitySearchNotifier(),
-        child: SearchScreen(),
-      )
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => CitySearchNotifier()),
+        ChangeNotifierProvider(create: (_)=> WeatherDetailNotifier() )
+      ],
+      child:  MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primarySwatch: Colors.indigo
+        ),
+        home: SearchScreen(),
+      ),
     );
   }
 }
