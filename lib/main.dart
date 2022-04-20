@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:weather_app_with_provider/view/change_notifier/search_city_notifier.dart';
 import 'package:weather_app_with_provider/view/screen/search_screen.dart';
 
 void main() {
@@ -10,7 +12,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: SearchScreen(),
+      home: ChangeNotifierProvider(
+        create: (_) => CitySearchNotifier(),
+        child: SearchScreen(),
+      )
     );
   }
 }
