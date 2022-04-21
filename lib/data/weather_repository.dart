@@ -7,7 +7,12 @@ class WeatherRepository{
   late WeatherApiService _weatherApiService;
   WeatherRepository(){
     _dio = Dio();
-
+    _dio.interceptors.add(LogInterceptor(
+      responseBody: true,
+      logPrint: (object){
+        print(object);
+      }
+    ));
     _weatherApiService = WeatherApiService(_dio);
   }
   Future<List<CityModel>> searchCity({required String city}){
