@@ -37,7 +37,17 @@ class WeatherDetailScreen extends StatelessWidget {
                 const Text("Current Temp:",style: TextStyle(color: Colors.white)),
                 Text(detail.weatherModel?.consolidatedWeather?[0].theTemp?.toStringAsFixed(2) ?? "",style: const TextStyle(color: Colors.white,fontSize: 25)),
                 const Divider(),
-                CachedNetworkImage(imageUrl: 'https://www.metaweather.com/static/img/weather/png/64/s.png'),
+                CachedNetworkImage(
+                  imageUrl: 'https://www.metaweather.com/static/img/weather/png/64/s.png',
+                  placeholder: (_,__){
+                    return const Center(child: CircularProgressIndicator(strokeWidth: 3,),);
+                  },
+                  errorWidget: (_,__,___){
+                    return const Center(child: Icon(Icons.error),);
+                  },
+                  fadeInDuration: Duration(seconds: 2),
+                  fadeInCurve: Curves.bounceInOut,
+                  ),
                 const Divider(),
                 Text(detail.weatherModel?.consolidatedWeather?[0].weatherStateName ?? "",style: const TextStyle(color: Colors.white,fontSize: 25)),
               ],
