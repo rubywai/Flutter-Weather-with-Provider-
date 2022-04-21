@@ -38,13 +38,13 @@ dependencies:
   provider: ^6.0.2
   cached_network_image: ^3.2.0
   logger: ^1.1.0
+  dio_http_cache: ^0.3.0
 
   
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  retrofit_generator: ^4.0.1
   build_runner: ^2.1.10
 
   # The "flutter_lints" package below contains a set of recommended lints to

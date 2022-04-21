@@ -10,10 +10,10 @@ abstract class WeatherApiService {
   factory WeatherApiService(Dio dio) => _WeatherApiService(dio);
   
   @GET("location/search/")
-  Future<List<CityModel>> searchCity({@Query("query") required String city });
+  Future<List<CityModel>> searchCity({@Query("query") required String city, @DioOptions() required Options options });
 
   @GET("location/{cityId}")
-  Future<WeatherModel> getWeatherInfo({@Path("cityId") required String cityId});
+  Future<WeatherModel> getWeatherInfo({@Path("cityId") required String cityId, @DioOptions() required Options options });
 
 
 }
